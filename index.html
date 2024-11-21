@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Izin Toilet</title>
+</head>
+<body>
+  <h1>Sistem Izin Toilet</h1>
+  <button id="start">Start</button>
+  <button id="finish">Finish</button>
+  <p id="response"></p>
+
+  <script>
+    const apiUrl = "https://script.google.com/macros/s/AKfycbw2mgQro-NWzT5BhDIFuVrdz-9-sDZJETe_Hgk5FbnQUCYWGLO1B0_eoEA6lDd5TOIr/exec"; // Masukkan URL API Anda di sini
+
+    document.getElementById("start").onclick = () => {
+      fetch(`${apiUrl}?action=start`)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("response").innerText = data;
+        });
+    };
+
+    document.getElementById("finish").onclick = () => {
+      fetch(`${apiUrl}?action=finish`)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("response").innerText = data;
+        });
+    };
+  </script>
+</body>
+</html>
